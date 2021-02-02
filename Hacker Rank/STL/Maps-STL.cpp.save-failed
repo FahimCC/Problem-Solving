@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int test,x,mark;
+    string name;
+
+    map<string,int>m;
+    map<string,int>::iterator it;
+
+    cin>>test;
+    while(test--)
+    {
+        cin>>x>>name;
+        it = m.find(name);
+        if(x == 1)
+        {
+            cin>>mark;
+            if(it != m.end())
+            {
+                mark = m[name] + mark;
+                cout<<mark" "<<m[name]<<endl;
+            }
+
+            m.insert(make_pair(name,mark));
+        }
+        else if(x == 2)
+        {
+            m[name] = 0;
+        }
+        else
+        {
+            if(it != m.end())
+                cout<<it->second<<endl;
+        }
+    }
+
+
+
+    return 0;
+}
